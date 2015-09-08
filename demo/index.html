@@ -251,19 +251,21 @@ for (var i = 0; i < len; i++) {
   ostrichMetricsArray.push(data);
 }
 
-  window.addEventListener('WebComponentsReady', function(e) {
+window.addEventListener('WebComponentsReady', function(e) {
 
-    var element = document.querySelector('sortable-table');
-    element.data = ostrichMetricsArray;
-    element.columns = columns;
+  var element = document.querySelector('sortable-table');
+  element.data = ostrichMetricsArray;
+  element.columns = columns;
 
-  });
+});
   </script>
 </head>
 
 <body>
   <p>An example of <code>&lt;sortable-table&gt;</code>:</p>
-  <sortable-table table-title="título de la tabla" table-summary="example" sort-column="fechaImputacion" sort-descending="false"></sortable-table>
+  <p>Order by default: <strong>maximum</strong></p>
+  <p>Descending: <strong>false</strong></p>
+  <sortable-table table-title="título de la tabla" table-summary="example" sort-column="maximum" sort-descending="false"></sortable-table>
 </body>
 
 </html>
