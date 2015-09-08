@@ -64,22 +64,24 @@ Polymer({
 
   properties: {
 
+    /**
+     * JSON Data to show in the table */
     data: {
       type: Array,
       value: function() {
         return [];
       }
     },
-    columns: {
-      type: Array,
-      value: function() {
-        return [];
-      }
-    },
+
+    /**
+     * Column to order */
     sortColumn: {
       type: String,
-      value: 'fechaImputacion'
+      value: ''
     },
+
+    /**
+     * Ascending or descending order */
     sortDescending: {
       type: Boolean,
       value: false,
@@ -88,14 +90,28 @@ Polymer({
 
   },
 
+  /**
+   * Get the data to fill a td element
+   *
+   * @param {string} row The data row
+   * @param {string} column The data column */
   _getTableData: function(row, column) {
     return row[column.name];
   },
 
+  /**
+   * Get the custom title of the table, if exists
+   *
+   * @param {string} column The data column */
   _getHeaderTitle: function(column) {
     return !(column.title) ? column.name : column.title;
   },
 
+  /**
+   * Sort a column. It is use by the dom-repeat sort attribute
+   *
+   * @param {string} key The key of the data to be sorted
+   * @param {string} desc The type of order: ascending or descending */
   _sortByKey: function(key, desc) {
     return function(a, b) {
       var x = a[key];
@@ -113,9 +129,14 @@ Polymer({
     };
   },
 
+  /**
+   * Perform an ordenation over a column
+   *
+   * @param {Object} event The information when the user click in a header */
   changeSort: function(event) {
     var clickedSortColumn = event.model.column.name;
     if (clickedSortColumn === this.sortColumn) {
+
       //column already sorted, reverse sort
       this.sortDescending = !this.sortDescending;
     } else {
