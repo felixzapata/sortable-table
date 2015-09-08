@@ -142,7 +142,6 @@ Polymer({
   changeSort: function(event) {
     var clickedSortColumn = event.model.column.name;
     if (clickedSortColumn === this.sortColumn) {
-      //column already sorted, reverse sort
       this.sortDescending = (this.sortDescending === 'true') ? 'false' : 'true';
     } else {
       this.sortColumn = clickedSortColumn;
