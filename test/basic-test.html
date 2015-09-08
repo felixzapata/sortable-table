@@ -26,7 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body>
   <test-fixture id="basic">
     <template>
-      <sortable-table table-title="título de la tabla" table-summary="example" sortColumn="horasImputadas" sortDescending="false"></sortable-table>
+      <sortable-table table-title="título de la tabla" table-summary="example" sort-column="horasImputadas" sort-descending="true"></sortable-table>
     </template>
   </test-fixture>
   <script>
@@ -98,7 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     test('number of table data', function(done) {
       flush(function() {
         assert.equal(myEl.querySelectorAll('td').length, 9);
-        assert.equal(myEl.querySelectorAll('td')[0].firstChild.nodeValue, '21/06/2015');
+        assert.equal(myEl.querySelectorAll('td')[0].firstChild.nodeValue, '21/07/2015');
         done();
       }, 0);
     });
@@ -110,11 +110,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }, 0);
     });
 
-    test('sort by the third column "horasImputadas" ascending and descending', function(done) {
+    test('sort by the third column "horasImputadas" descending and ascending', function(done) {
       var button;
       var result;
-      var thirdColumnAscOrdered = ['0', '2', '4'];
       var thirdColumnDescOrdered = ['4', '2', '0'];
+      var thirdColumnAscOrdered = ['0', '2', '4'];
 
       function pushButton() {
         flush(function() {
@@ -138,11 +138,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       pushButton();
 
-      doTest(thirdColumnAscOrdered, false);
+      doTest(thirdColumnDescOrdered, false);
 
       pushButton();
 
-      doTest(thirdColumnDescOrdered, true);
+      doTest(thirdColumnAscOrdered, true);
 
     });
 
