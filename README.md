@@ -2,7 +2,7 @@
 
 An element providing a solution to show a table and sort the columns.
 
-Based on [Sortable Table with Polymer Web Components](http://stevenskelton.ca/sortable-table-with-polymer-web-components/)
+Based on [Sortable Table with Polymer Web Components](http://stevenskelton.ca/sortable-table-with-polymer-web-components/).
 
 
 ## Dependencies
