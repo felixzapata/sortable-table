@@ -1,0 +1,123 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <sortable-table></sortable-table>
+
+@demo
+-->
+<dom-module id="sortable-table">
+  <style>
+  :host {
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  table {
+    padding: 0;
+  }
+  </style>
+  <template>
+    <table summary='{{tableSummary}}'>
+      <caption>{{tableTitle}}</caption>
+      <thead>
+        <tr>
+          <template is="dom-repeat" items="{{columns}}" as="column">
+            <th style="{{sortColumn==column.name ? (sortDescending ? 'text-decoration:overline' : 'text-decoration:underline') : ''}}">
+              <button type="button" on-click="changeSort">{{_getHeaderTitle(column)}}</button>
+            </th>
+          </template>
+        </tr>
+      </thead>
+      <tbody>
+        <template is="dom-repeat" items="{{data}}" as="row" sort="{{_sortByKey(sortColumn, sortDescending)}}">
+          <tr>
+            <template is="dom-repeat" items="{{columns}}" as="column">
+              <td>{{_getTableData(row, column)}}</td>
+            </template>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+    </table>
+  </template>
+</dom-module>
+<script>
+Polymer({
+
+
+  is: 'sortable-table',
+
+  properties: {
+
+    data: {
+      type: Array,
+      value: function() {
+        return [];
+      }
+    },
+    columns: {
+      type: Array,
+      value: function() {
+        return [];
+      }
+    },
+    sortColumn: {
+      type: String,
+      value: 'fechaImputacion'
+    },
+    sortDescending: {
+      type: Boolean,
+      value: false,
+      notify: true
+    }
+
+  },
+
+  _getTableData: function(row, column) {
+    return row[column.name];
+  },
+
+  _getHeaderTitle: function(column) {
+    return !(column.title) ? column.name : column.title;
+  },
+
+  _sortByKey: function(key, desc) {
+    return function(a, b) {
+      var x = a[key];
+      var y = b[key];
+      if (typeof x === 'string') {
+        x = x.toLowerCase();
+        y = y.toLowerCase();
+      }
+      if (desc) {
+        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+      } else {
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+      }
+    };
+  },
+
+  changeSort: function(event) {
+    var clickedSortColumn = event.model.column.name;
+    if (clickedSortColumn === this.sortColumn) {
+      //column already sorted, reverse sort
+      this.sortDescending = !this.sortDescending;
+    } else {
+      this.sortColumn = clickedSortColumn;
+    }
+  }
+
+});
+</script>

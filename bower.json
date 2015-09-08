@@ -1,0 +1,28 @@
+{
+    "name": "sortable-table",
+    "version": "1.0.0",
+    "authors": [
+        "Felix Zapata <felix.zapata@adesis.com>"
+    ],
+    "description": "An element providing a solution to show a table and sort the columns.",
+    "keywords": [
+        "web-component",
+        "web-components",
+        "polymer"
+    ],
+    "main": "sortable-table.html",
+    "ignore": [
+        "/.*",
+        "/test/",
+        "/demo/"
+    ],
+    "dependencies": {
+        "polymer": "Polymer/polymer#^1.0.0"
+    },
+    "devDependencies": {
+        "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+        "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0",
+        "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+        "web-component-tester": "*"
+    }
+}
