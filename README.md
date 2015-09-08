@@ -12,9 +12,9 @@ install that via:
 
     npm install -g bower
 
-Then, go ahead and download the element's dependencies:
+If you want to use the Gulp tasks inside this project, you should Gulp first:
 
-    bower install
+    npm install -g gulp
 
 
 ## Playing With Your Element
@@ -31,6 +31,32 @@ And you can run it via:
 
 Once running, you can preview your element at
 `http://localhost:8080/components/sortable-table/`, where `sortable-table` is the name of the directory containing it.
+
+
+## Lint analysis
+
+There are two tasks that can be run for this project: __lint__ and __watch__.
+
+To use this tasks you must install the node modules inside ``package.json`` file:
+
+    npm install
+
+## Task: lint
+
+Running this will execute a JSHint and JSCS analysis to the JavaScript code inside HTML files.
+
+To run this task:
+
+    gulp lint
+
+
+### JSCS analysis
+
+It uses the preset rules for [Airbnb](https://github.com/airbnb/javascript/tree/master/es5).
+Overrides the rules:
+
+* [disallowQuotedKeysInObjects](http://jscs.info/rule/disallowQuotedKeysInObjects): set to false
+* [requireLineFeedAtFileEnd](http://jscs.info/rule/requireLineFeedAtFileEnd): removed
 
 
 ## Testing Your Element
