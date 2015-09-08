@@ -1,6 +1,6 @@
 # sortable-table
 
-An element providing a starting point for your own reusable Polymer elements.
+An element providing a solution to show a table and sort the columns.
 
 Based on [Sortable Table with Polymer Web Components](http://stevenskelton.ca/sortable-table-with-polymer-web-components/)
 
