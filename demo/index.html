@@ -16,83 +16,83 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <title>sortable-table Demo</title>
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../sortable-table.html">
-  <script>
-  var data = [{
-      'fechaImputacion': '21/06/2015',
-      'hangoutLink': 'https://plus.google.com',
-      'horasImputadas': 4,
-      'htmlLink': 'https://www.google.com/calendar/',
-      'iCalUID': '5ipr6e8ga4ok40rs5oriq6l5kk@google.com',
-      'id': '5ipr6e8ga4ok40rs5oriq6l5kk',
-      'kind': 'calendar#event',
-      'organizer': {},
-      'reminders': {},
-      'sequence': 0,
-      'start': {},
-      'status': 'confirmed',
-      'summary': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño - 686/20150111/0003/0003/0001',
-      'taskName': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño ',
-      'updated': '2015-06-23T14:28:30.611Z'
-    }, {
-      'fechaImputacion': '21/06/2015',
-      'hangoutLink': 'https://plus.google.com',
-      'horasImputadas': 6,
-      'htmlLink': 'https://www.google.com/calendar/',
-      'iCalUID': '5ipr6e8ga4ok40rs5oriq6l5kk@google.com',
-      'id': '5ipr6e8ga4ok40rs5oriq6l5kk',
-      'kind': 'calendar#event',
-      'organizer': {},
-      'reminders': {},
-      'sequence': 0,
-      'start': {},
-      'status': 'confirmed',
-      'summary': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño - 686/20150111/0003/0003/0001',
-      'taskName': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño ',
-      'updated': '2015-06-23T14:28:30.611Z'
-    }],
-    columns = [{
-      name: 'fechaImputacion',
-      title: 'Fecha Imputación'
-    }, {
-      name: 'hangoutLink',
-      title: 'hangout link'
-    }, {
-      name: 'horasImputadas',
-      title: 'horas imputadas'
-    }, {
-      name: 'htmlLink'
-    }, {
-      name: 'iCalUID'
-    }, {
-      name: 'id'
-    }, {
-      name: 'kind'
-    }, {
-      name: 'organizer'
-    }, {
-      name: 'reminders'
-    }, {
-      name: 'sequence'
-    }, {
-      name: 'start'
-    }, {
-      name: 'status'
-    }, {
-      name: 'summary'
-    }, {
-      name: 'taskName',
-      title: 'task name'
-    }, {
-      name: 'updated'
-    }];
-  window.addEventListener('WebComponentsReady', function(e) {
+<script>
+var data = [{
+  'fechaImputacion': '21/06/2015',
+  'hangoutLink': 'https://plus.google.com',
+  'horasImputadas': 4,
+  'htmlLink': 'https://www.google.com/calendar/',
+  'iCalUID': '5ipr6e8ga4ok40rs5oriq6l5kk@google.com',
+  'id': '5ipr6e8ga4ok40rs5oriq6l5kk',
+  'kind': 'calendar#event',
+  'organizer': {},
+  'reminders': {},
+  'sequence': 0,
+  'start': {},
+  'status': 'confirmed',
+  'summary': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño - 686/20150111/0003/0003/0001',
+  'taskName': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño ',
+  'updated': '2015-06-23T14:28:30.611Z'
+}, {
+  'fechaImputacion': '21/06/2015',
+  'hangoutLink': 'https://plus.google.com',
+  'horasImputadas': 6,
+  'htmlLink': 'https://www.google.com/calendar/',
+  'iCalUID': '5ipr6e8ga4ok40rs5oriq6l5kk@google.com',
+  'id': '5ipr6e8ga4ok40rs5oriq6l5kk',
+  'kind': 'calendar#event',
+  'organizer': {},
+  'reminders': {},
+  'sequence': 0,
+  'start': {},
+  'status': 'confirmed',
+  'summary': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño - 686/20150111/0003/0003/0001',
+  'taskName': 'IMPLEMENTACIÓN @ FASE TRES @ Diseño ',
+  'updated': '2015-06-23T14:28:30.611Z'
+}];
+var columns = [{
+  name: 'fechaImputacion',
+  title: 'Fecha Imputación'
+}, {
+  name: 'hangoutLink',
+  title: 'hangout link'
+}, {
+  name: 'horasImputadas',
+  title: 'horas imputadas'
+}, {
+  name: 'htmlLink'
+}, {
+  name: 'iCalUID'
+}, {
+  name: 'id'
+}, {
+  name: 'kind'
+}, {
+  name: 'organizer'
+}, {
+  name: 'reminders'
+}, {
+  name: 'sequence'
+}, {
+  name: 'start'
+}, {
+  name: 'status'
+}, {
+  name: 'summary'
+}, {
+  name: 'taskName',
+  title: 'task name'
+}, {
+  name: 'updated'
+}];
+window.addEventListener('WebComponentsReady', function(e) {
 
-    var element = document.querySelector('sortable-table');
-    element.data = data;
-    element.columns = columns;
+  var element = document.querySelector('sortable-table');
+  element.data = data;
+  element.columns = columns;
 
-  });
-  </script>
+});
+</script>
 </head>
 
 <body>
