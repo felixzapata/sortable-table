@@ -2,7 +2,7 @@
     "name": "sortable-table",
     "version": "1.0.0",
     "authors": [
-        "Felix Zapata <felix.zapata@adesis.com>"
+        "Felix Zapata <fzberlinches@gmail.com>"
     ],
     "description": "An element providing a solution to show a table and sort the columns.",
     "keywords": [
