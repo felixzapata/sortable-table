@@ -38,7 +38,7 @@ Example:
       <thead>
         <tr>
           <template is="dom-repeat" items="{{columns}}" as="column">
-            <th style="{{sortColumn==column.name ? (sortDescending ? 'text-decoration:overline' : 'text-decoration:underline') : ''}}">
+            <th>
               <button type="button" on-click="changeSort">{{_getHeaderTitle(column)}}</button>
             </th>
           </template>
