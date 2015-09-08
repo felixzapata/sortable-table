@@ -84,16 +84,14 @@ Polymer({
     /**
      * Column to order */
     sortColumn: {
-      type: String,
-      value: ''
+      type: String
     },
 
     /**
      * Ascending or descending order */
     sortDescending: {
-      type: Boolean,
-      value: false,
-      notify: true
+      type: String,
+      value: 'false'
     }
 
   },
@@ -129,7 +127,7 @@ Polymer({
         y = y.toLowerCase();
       }
 
-      if (desc) {
+      if (desc === 'false') {
         return ((x < y) ? 1 : ((x > y) ? -1 : 0));
       } else {
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
