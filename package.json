@@ -5,6 +5,9 @@
   "main": "",
   "author": "Felix Zapata",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felixzapata/sortable-table/issues"
+  },
   "scripts": {
     "test": "wct --plugin sauce"
   },
