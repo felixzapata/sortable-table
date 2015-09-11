@@ -28,17 +28,25 @@ Example:
     box-sizing: border-box;
   }
   
+  .ascending {
+    background-color: red;
+  }
+  
+  .descending {
+    background-color: green;
+  }
+  
   table {
     padding: 0;
-    border:1px solid #000;
-    border-collapse:collapse;
+    border: 1px solid #000;
+    border-collapse: collapse;
   }
-
-  td, th {
+  
+  td,
+  th {
     border: 1px solid #000;
     padding: 6px;
   }
-
   </style>
   <template>
     <table summary='{{tableSummary}}'>
@@ -47,7 +55,7 @@ Example:
         <tr>
           <template is="dom-repeat" items="{{columns}}" as="column">
             <th>
-              <button type="button" on-click="changeSort">{{_getHeaderTitle(column)}}</button>
+              <button type="button" on-click="changeSort" class$="{{_getClassTypeSort(column)}}">{{_getHeaderTitle(column)}}</button>
             </th>
           </template>
         </tr>
@@ -97,6 +105,20 @@ Polymer({
   },
 
   /**
+   * Perform an ordenation over a column
+   *
+   * @param {Object} event The information when the user click in a header */
+  changeSort: function(event) {
+    var clickedSortColumn = event.model.column.name;
+    if (clickedSortColumn === this.sortColumn) {
+      this.sortDescending = (this.sortDescending === 'true') ? 'false' : 'true';
+    } else {
+      this.sortColumn = clickedSortColumn;
+    }
+    this._getClassTypeSort(event.model.column);
+  },
+
+  /**
    * Get the data to fill a td element
    *
    * @param {string} row The data row
@@ -136,16 +158,12 @@ Polymer({
   },
 
   /**
-   * Perform an ordenation over a column
+   * Get the class for the clicked button
    *
-   * @param {Object} event The information when the user click in a header */
-  changeSort: function(event) {
-    var clickedSortColumn = event.model.column.name;
-    if (clickedSortColumn === this.sortColumn) {
-      this.sortDescending = (this.sortDescending === 'true') ? 'false' : 'true';
-    } else {
-      this.sortColumn = clickedSortColumn;
-    }
+   * @param {String} column The column to check the name */
+  _getClassTypeSort: function(column) {
+    // si la columna coincide y si hay aplicada ordenación sobre ella
+    return this.sortColumn === column.name ? (this.sortDescending === 'true' ? 'ascending' : 'descending') : '';
   }
 
 });
