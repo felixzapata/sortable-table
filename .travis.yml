@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - '0.10'
   - '0.11'
+branches:
+  except:
+  - gh-pages
 env:
   global:
     - secure: VvNJOfDRY3RGhng5s01/d7jhrasovFdPZfMsQiN2cc6DZNT1UNiKF6L3SxF4kLEQj9Eqbh6mTV6DTkUAqr17lyY9tXeUvtn1hr1c+GjBxTv9h+0hWcou0XEJaqHf2UrwfP5pWwfs6FyB7NwiGp/mjbVyCjRZutqmg4mcdMYBUdRKpyI1XYTW6L9BsMIwAg2sHxn3beBDu6S3n+2tvD8OqfSVhW0txE9/B5IMWQUo9RjrMQ+NXfGAspja+SUKR8XkP1Qxe8GivX7ad+9vdrXPw0C8yAz/4gNms8iN75eqAISxff/AxQ6mi/boOWRwElYGLSiU+17QYibRnD+5xK98dHj045CHgEQYxL9ucTX3Xm6jBOrNmYOM+egmB9WIu1SmbCmhwdIkHYVsZhwe+LZmTGNJwn2x9mYLc70MZt8wiZWhbnDzAWYK925bk29HPbsaJnQHykliG9tTl6CPorNdhqNgUHEsYsYghJCSYAQBWhK63/+UGK9B+pyqbjeYJnM6EJrg2vEsMSV+rOp4gS1mPkY1/0rXJohbCIta0P/O4lt7HyGxg2tDTnMw9vacIJunrYyv9E91LzUt4jwm4bwfn60PsVNhd3SOBQH1CvDhfzg+EJ+V9WPzOxa2hQ9g/eU8y9ZtDQTh+1dqmt88fQn66DDyzJOR9POTQBV7NRBxe20=
