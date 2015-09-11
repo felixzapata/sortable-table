@@ -7,6 +7,10 @@ An element providing a solution to show a table and sort the columns.
 Update to Polymer 1.0 and added some tests of the example [Sortable Table with Polymer Web Components](http://stevenskelton.ca/sortable-table-with-polymer-web-components/).
 
 
+## Demo
+
+[https://github.io/felixzapata/sortable-table](https://github.io/felixzapata/sortable-table)
+
 ## Dependencies
 
 Element dependencies are managed via [Bower](http://bower.io/). You can
