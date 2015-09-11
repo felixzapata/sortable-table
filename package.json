@@ -5,6 +5,9 @@
   "main": "",
   "author": "Felix Zapata",
   "license": "MIT",
+  "scripts": {
+    "test": "wct --plugin sauce"
+  },
   "devDependencies": {
     "browser-sync": "~2.9.1",
     "gulp": "^3.8.5",
@@ -14,6 +17,7 @@
     "gulp-jscs-stylish": "~1.1.2",
     "gulp-jshint": "^1.6.3",
     "gulp-load-plugins": "^0.5.3",
-    "jshint-stylish": "^0.4.0"
+    "jshint-stylish": "^0.4.0",
+    "web-component-tester": "*"
   }
 }
