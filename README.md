@@ -1,5 +1,7 @@
 # sortable-table
 
+[![Build Status](https://travis-ci.org/felixzapata/sortable-table.png)](https://travis-ci.org/felixzapata/sortable-table)
+
 An element providing a solution to show a table and sort the columns.
 
 Update to Polymer 1.0 and added some tests of the example [Sortable Table with Polymer Web Components](http://stevenskelton.ca/sortable-table-with-polymer-web-components/).
