@@ -9,7 +9,7 @@ Update to Polymer 1.0 and added some tests of the example [Sortable Table with P
 
 ## Demo
 
-[https://github.io/felixzapata/sortable-table](https://github.io/felixzapata/sortable-table)
+[https://github.io.felixzapata/sortable-table](https://github.io.felixzapata/sortable-table)
 
 ## Dependencies
 
