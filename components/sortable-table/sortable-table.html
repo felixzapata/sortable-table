@@ -1,0 +1,152 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<!--
+An element providing a solution to show a table and sort the columns.
+
+Based on Sortable Table with Polymer Web Components:
+
+http://stevenskelton.ca/sortable-table-with-polymer-web-components/
+
+Example:
+
+    <sortable-table table-title="my tittle" table-summary="my summary example" sort-column="defaultColumnOrder" sort-descending="false"></sortable-table>
+
+@demo
+-->
+<dom-module id="sortable-table">
+  <style>
+  :host {
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  table {
+    padding: 0;
+    border:1px solid #000;
+    border-collapse:collapse;
+  }
+
+  td, th {
+    border: 1px solid #000;
+    padding: 6px;
+  }
+
+  </style>
+  <template>
+    <table summary='{{tableSummary}}'>
+      <caption>{{tableTitle}}</caption>
+      <thead>
+        <tr>
+          <template is="dom-repeat" items="{{columns}}" as="column">
+            <th>
+              <button type="button" on-click="changeSort">{{_getHeaderTitle(column)}}</button>
+            </th>
+          </template>
+        </tr>
+      </thead>
+      <tbody>
+        <template is="dom-repeat" items="{{data}}" as="row" sort="{{_sortByKey(sortColumn, sortDescending)}}">
+          <tr>
+            <template is="dom-repeat" items="{{columns}}" as="column">
+              <td>{{_getTableData(row, column)}}</td>
+            </template>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+    </table>
+  </template>
+</dom-module>
+<script>
+Polymer({
+
+  is: 'sortable-table',
+
+  properties: {
+
+    /**
+     * JSON Data to show in the table */
+    data: {
+      type: Array,
+      value: function() {
+        return [];
+      }
+    },
+
+    /**
+     * Column to order */
+    sortColumn: {
+      type: String
+    },
+
+    /**
+     * Ascending or descending order */
+    sortDescending: {
+      type: String,
+      value: 'false'
+    }
+
+  },
+
+  /**
+   * Get the data to fill a td element
+   *
+   * @param {string} row The data row
+   * @param {string} column The data column */
+  _getTableData: function(row, column) {
+    return row[column.name];
+  },
+
+  /**
+   * Get the custom title of the table, if exists
+   *
+   * @param {string} column The data column */
+  _getHeaderTitle: function(column) {
+    return !(column.title) ? column.name : column.title;
+  },
+
+  /**
+   * Sort a column. It is use by the dom-repeat sort attribute
+   *
+   * @param {string} key The key of the data to be sorted
+   * @param {string} desc The type of order: ascending or descending */
+  _sortByKey: function(key, desc) {
+    return function(a, b) {
+      var x = a[key];
+      var y = b[key];
+      if (typeof x === 'string') {
+        x = x.toLowerCase();
+        y = y.toLowerCase();
+      }
+
+      if (desc === 'false') {
+        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+      } else {
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+      }
+    };
+  },
+
+  /**
+   * Perform an ordenation over a column
+   *
+   * @param {Object} event The information when the user click in a header */
+  changeSort: function(event) {
+    var clickedSortColumn = event.model.column.name;
+    if (clickedSortColumn === this.sortColumn) {
+      this.sortDescending = (this.sortDescending === 'true') ? 'false' : 'true';
+    } else {
+      this.sortColumn = clickedSortColumn;
+    }
+  }
+
+});
+</script>
