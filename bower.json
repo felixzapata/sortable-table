@@ -11,6 +11,7 @@
         "polymer"
     ],
     "main": "sortable-table.html",
+    "homepage": "https://felixzapata.github.io/sortable-table/",
     "ignore": [
         "/.*",
         "/test/",
