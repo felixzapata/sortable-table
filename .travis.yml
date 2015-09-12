@@ -12,3 +12,5 @@ sudo: false
 branches:
   except:
   - gh-pages
+  only:
+  - master
