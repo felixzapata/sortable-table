@@ -124,13 +124,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       }
 
-      function doTest(expected, complete) {
+      function hasClass(el, className) {
+        return el.getAttribute('class').indexOf(className) !== -1;
+      }
+
+      function doTest(expected, complete, cssClass) {
         flush(function() {
           result = myEl.querySelectorAll('td')[2].firstChild.nodeValue;
           assert.deepEqual(result, expected[0]);
           result = myEl.querySelectorAll('td')[8].firstChild.nodeValue;
           assert.deepEqual(result, expected[2]);
-          if(complete){
+          assert.equal(hasClass(button, cssClass), true);
+          if (complete) {
             done();
           }
         });
@@ -138,11 +143,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       pushButton();
 
-      doTest(thirdColumnDescOrdered, false);
+      doTest(thirdColumnDescOrdered, false, 'descending');
 
       pushButton();
 
-      doTest(thirdColumnAscOrdered, true);
+      doTest(thirdColumnAscOrdered, true, 'ascending');
 
     });
 
