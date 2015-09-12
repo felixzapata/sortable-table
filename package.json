@@ -20,7 +20,6 @@
     "gulp-jscs-stylish": "~1.1.2",
     "gulp-jshint": "^1.6.3",
     "gulp-load-plugins": "^0.5.3",
-    "jshint-stylish": "^0.4.0",
-    "web-component-tester": "*"
+    "jshint-stylish": "^0.4.0"
   }
 }
