@@ -55,7 +55,7 @@ Example:
         <tr>
           <template is="dom-repeat" items="{{columns}}" as="column">
             <th>
-              <button type="button" on-click="changeSort" class$="{{_getClassTypeSort(column)}}">{{_getHeaderTitle(column)}}</button>
+              <button type="button" on-click="changeSort">{{_getHeaderTitle(column)}}</button>
             </th>
           </template>
         </tr>
@@ -100,7 +100,13 @@ Polymer({
     sortDescending: {
       type: String,
       value: 'false'
-    }
+    },
+
+    /**
+     * Store the clicked element to reset the css classes */
+    columnClicked: {
+      type:Object
+    },
 
   },
 
@@ -115,7 +121,21 @@ Polymer({
     } else {
       this.sortColumn = clickedSortColumn;
     }
-    this._getClassTypeSort(event.model.column);
+    this._toggleClass(event);
+  },
+
+  /**
+   * Toggle the class when the user click in the header button and reset a
+   * previous clicked button if exists.
+   *
+   * @param {Object} event The information when the user click in a header */
+  _toggleClass:function(event){
+    var newCssClass = this._getClassTypeSort(event.model.column);
+    if(typeof this.columnClicked !== 'undefined'){
+      this.columnClicked.className = ['sortable-table', 'style-scope'].join(' ');
+    }
+    event.target.className = ['sortable-table', 'style-scope', newCssClass].join(' ');
+    this.columnClicked = event.target;
   },
 
   /**
@@ -158,11 +178,10 @@ Polymer({
   },
 
   /**
-   * Get the class for the clicked button
+   * Get the new class for the clicked button
    *
    * @param {String} column The column to check the name */
   _getClassTypeSort: function(column) {
-    // si la columna coincide y si hay aplicada ordenación sobre ella
     return this.sortColumn === column.name ? (this.sortDescending === 'true' ? 'ascending' : 'descending') : '';
   }
 
